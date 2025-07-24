@@ -27,7 +27,7 @@ export default async function SharePage({
   const url = `${baseUrl}/share/${snippet._id}`;
 
   return (
-    <main className="p-2 flex flex-col gap-4 relative">
+    <main className="min-h-screen flex flex-col gap-4 p-2 bg-[#0a0a0a] text-white">
       <header className="sticky top-0 bg-[#0a0a0a] p-2 z-50">
         <div className="flex flex-wrap justify-between items-center">
           <h1 className="text-2xl sm:text-3xl font-bold">SnipLink</h1>
@@ -45,7 +45,8 @@ export default async function SharePage({
           </div>
         </div>
       </header>
-      <div className="flex-1 overflow-auto">
+
+      <div className="flex-grow overflow-hidden">
         <CodeBlock code={snippet.code.trimEnd()} />
       </div>
     </main>
