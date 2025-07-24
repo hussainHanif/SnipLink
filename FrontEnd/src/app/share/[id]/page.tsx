@@ -8,14 +8,15 @@ import { QRCodeBlock } from "@/components/QRCodeBlock";
 export default async function SharePage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const db = await getDB();
   const collection = db.collection<Snippet>("snippets");
 
   let snippet: Snippet | null = null;
   try {
-    snippet = await collection.findOne({ _id: params.id });
+    snippet = await collection.findOne({ _id: id });
   } catch (error) {
     console.error("Error fetching snippet:", error);
     return notFound();
