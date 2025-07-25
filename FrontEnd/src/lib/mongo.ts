@@ -1,6 +1,6 @@
 import { MongoClient, Db } from "mongodb";
 
-const uri = "mongodb+srv://sniplink:OqNq5hBKYv4jQz3a@cluster0.3vxvf.mongodb.net/sniplink?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI as string;
 const dbName = "sniplink";
 
 interface CachedMongo {
