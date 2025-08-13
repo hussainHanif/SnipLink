@@ -48,7 +48,7 @@ export async function getDB(): Promise<Db> {
       await cached.conn.client.db().admin().ping();
       console.log('Cached connection is valid');
       return cached.conn.db;
-    } catch (error) {
+    } catch {
       console.log('Cached connection is stale, clearing cache...');
       // Connection is stale, clear cache
       cached.conn = null;
