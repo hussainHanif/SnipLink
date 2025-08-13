@@ -1,6 +1,8 @@
 import { MongoClient, Db } from "mongodb";
 
-const uri = process.env.MONGODB_URI;
+// Clean the URI by removing any surrounding quotes
+const rawUri = process.env.MONGODB_URI;
+const uri = rawUri ? rawUri.replace(/^["']|["']$/g, '') : undefined;
 const dbName = process.env.DB_NAME || "sniplink";
 
 interface CachedMongo {
@@ -21,7 +23,8 @@ export async function getDB(): Promise<Db> {
   console.log('=== MongoDB Connection Debug ===');
   console.log('Environment check:');
   console.log('- NODE_ENV:', process.env.NODE_ENV);
-  console.log('- MONGODB_URI exists:', !!uri);
+  console.log('- Raw MONGODB_URI:', rawUri ? `"${rawUri.substring(0, 30)}..."` : 'NOT SET');
+  console.log('- Cleaned MONGODB_URI:', uri ? `"${uri.substring(0, 30)}..."` : 'NOT SET');
   console.log('- MONGODB_URI length:', uri?.length || 0);
   console.log('- MONGODB_URI starts with mongodb:', uri?.startsWith('mongodb'));
   console.log('- DB_NAME:', dbName);
