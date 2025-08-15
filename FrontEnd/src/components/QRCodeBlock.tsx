@@ -87,7 +87,7 @@ export function QRCodeBlock({ url }: QRCodeBlockProps) {
         <div className="fixed inset-0 z-50 flex items-center text-center justify-center bg-black/60 backdrop-blur-sm p-4">
           <div
             ref={modalRef}
-            className="bg-[var(--card)] p-4 xs:p-5 sm:p-6 rounded-lg shadow-xl relative border border-[var(--border)]"
+            className="bg-[var(--card)] p-4 xs:p-5 sm:p-6 rounded-lg shadow-xl relative border border-[var(--border)] flex flex-col items-center"
             style={{ width: modalSize.width }}
           >
             <button
@@ -98,14 +98,14 @@ export function QRCodeBlock({ url }: QRCodeBlockProps) {
               <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
-            <h2 className="text-lg xs:text-xl font-bold mb-1 xs:mb-2">
+            <h2 className="text-lg xs:text-xl font-bold mb-1 xs:mb-2 text-center">
               Share Your Code
             </h2>
-            <p className="text-xs xs:text-sm opacity-60 mb-4 xs:mb-6">
+            <p className="text-xs xs:text-sm opacity-60 mb-4 xs:mb-6 text-center">
               Scan the QR code or copy the link
             </p>
             
-            <div className="bg-white p-3 sm:p-4 rounded-lg mb-3 xs:mb-4 mx-auto" style={{ maxWidth: modalSize.qrSize + 24 }}>
+            <div className="bg-white p-3 sm:p-4 rounded-lg mb-3 xs:mb-4 mx-auto flex justify-center" style={{ maxWidth: modalSize.qrSize + 24 }}>
               <QRCodeCanvas
                 value={url}
                 size={modalSize.qrSize}
@@ -116,12 +116,12 @@ export function QRCodeBlock({ url }: QRCodeBlockProps) {
               />
             </div>
             
-            <div className="relative mb-2">
+            <div className="relative mb-2 w-full">
               <input
                 type="text"
                 value={url}
                 readOnly
-                className="w-full px-2 xs:px-3 py-1.5 xs:py-2 bg-[var(--secondary)] rounded text-xs xs:text-sm text-[var(--foreground)] border border-[var(--border)] focus:outline-none"
+                className="w-full px-2 xs:px-3 py-1.5 xs:py-2 bg-[var(--secondary)] rounded text-xs xs:text-sm text-[var(--foreground)] border border-[var(--border)] focus:outline-none text-center"
               />
               <button
                 onClick={() => {
@@ -133,7 +133,7 @@ export function QRCodeBlock({ url }: QRCodeBlockProps) {
               </button>
             </div>
             
-            <p className="text-[10px] xs:text-xs opacity-60 mt-2 xs:mt-4">
+            <p className="text-[10px] xs:text-xs opacity-60 mt-2 xs:mt-4 text-center">
               Anyone with this link can access your code snippet
             </p>
           </div>

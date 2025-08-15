@@ -30,11 +30,11 @@ export default async function SharePage({
       console.error("Database error fetching snippet:", dbError);
       // Return a user-friendly error page instead of crashing
       return (
-        <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-[#0a0a0a] text-white">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Database Error</h1>
-            <p className="text-gray-400 mb-4">Unable to fetch the code snippet at this time.</p>
-            <Link href="/" className="text-blue-400 hover:text-blue-300 underline">
+        <main className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 bg-[var(--background)] text-[var(--foreground)]">
+          <div className="text-center max-w-md w-full mx-auto px-4">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">Database Error</h1>
+            <p className="text-sm sm:text-base text-[var(--muted-foreground)] mb-4 sm:mb-6">Unable to fetch the code snippet at this time.</p>
+            <Link href="/" className="inline-block text-sm sm:text-base text-[var(--foreground)] hover:opacity-80 underline py-2 px-4 rounded-md border border-[var(--border)] hover:bg-[var(--secondary)] transition-colors">
               Return to Home
             </Link>
           </div>
@@ -50,20 +50,30 @@ export default async function SharePage({
     const url = `${baseUrl}/share/${snippet._id}`;
 
     return (
-      <main className="min-h-screen flex flex-col gap-4 p-2 bg-[#0a0a0a] text-white">
-        <header className="sticky top-0 bg-[#0a0a0a] p-2 z-50">
-          <div className="flex flex-wrap justify-between items-center">
+      <main className="min-h-screen flex flex-col gap-4 p-2 bg-[var(--background)] text-[var(--foreground)]">
+        <header className="sticky top-0 bg-[var(--background)] p-2 z-50 border-b border-[var(--border)]">
+          <div className="flex flex-wrap items-center justify-between">
             <h1 className="text-2xl sm:text-3xl font-bold">SnipLink</h1>
-            <div className="flex flex-wrap gap-2 ml-auto">
-              <CopyButton code={snippet.code} />
-              <QRCodeBlock url={url} />
+            <div className="flex items-center space-x-2 ml-auto">
+              <div className="flex items-center gap-2 flex-nowrap">
+                <CopyButton code={snippet.code} />
+                <QRCodeBlock url={url} />
+              </div>
               <a
                 href="https://marketplace.visualstudio.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center h-10 px-5 text-sm font-medium text-white transition-colors bg-black border border-transparent rounded-md sm:h-12 sm:text-base dark:bg-white dark:text-black hover:opacity-80"
+                className="hidden sm:flex items-center justify-center h-10 px-4 text-sm font-medium text-[var(--background)] transition-colors bg-[var(--foreground)] border border-[var(--border)] rounded-md sm:h-10 hover:opacity-80 whitespace-nowrap"
               >
-                Install VS Code Extension
+                Install Extension
+              </a>
+              <a
+                href="https://marketplace.visualstudio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sm:hidden flex items-center justify-center h-10 px-3 text-xs font-medium text-[var(--background)] transition-colors bg-[var(--foreground)] border border-[var(--border)] rounded-md hover:opacity-80"
+              >
+                Install Extension
               </a>
             </div>
           </div>
@@ -79,11 +89,11 @@ export default async function SharePage({
     
     // Return a user-friendly error page
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-[#0a0a0a] text-white">
+      <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-[var(--background)] text-[var(--foreground)]">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Something went wrong</h1>
-          <p className="text-gray-400 mb-4">An unexpected error occurred while loading the page.</p>
-          <Link href="/" className="text-blue-400 hover:text-blue-300 underline">
+          <p className="text-[var(--muted-foreground)] mb-4">An unexpected error occurred while loading the page.</p>
+          <Link href="/" className="text-[var(--foreground)] hover:opacity-80 underline">
             Return to Home
           </Link>
         </div>
