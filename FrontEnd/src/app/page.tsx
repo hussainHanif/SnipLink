@@ -48,7 +48,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="https://marketplace.visualstudio.com/"
+              href="https://marketplace.visualstudio.com/items?itemName=Trottk.sniplink"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center h-10 px-5 text-sm font-medium transition-colors bg-[var(--foreground)] text-[var(--background)] rounded-md hover:opacity-90"
@@ -71,7 +71,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-10">
             <a
               className="rounded-md transition-colors flex items-center justify-center bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 font-medium text-base h-12 px-6"
-              href="https://marketplace.visualstudio.com/"
+              href="https://marketplace.visualstudio.com/items?itemName=Trottk.sniplink"
               target="_blank"
               rel="noopener noreferrer"
             >

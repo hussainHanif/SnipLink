@@ -60,7 +60,7 @@ export default async function SharePage({
                 <QRCodeBlock url={url} />
               </div>
               <a
-                href="https://marketplace.visualstudio.com/"
+                href="https://marketplace.visualstudio.com/items?itemName=Trottk.sniplink"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:flex items-center justify-center h-10 px-4 text-sm font-medium text-[var(--background)] transition-colors bg-[var(--foreground)] border border-[var(--border)] rounded-md sm:h-10 hover:opacity-80 whitespace-nowrap"
@@ -68,7 +68,7 @@ export default async function SharePage({
                 Install Extension
               </a>
               <a
-                href="https://marketplace.visualstudio.com/"
+                href="https://marketplace.visualstudio.com/items?itemName=Trottk.sniplink"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="sm:hidden flex items-center justify-center h-10 px-3 text-xs font-medium text-[var(--background)] transition-colors bg-[var(--foreground)] border border-[var(--border)] rounded-md hover:opacity-80"
