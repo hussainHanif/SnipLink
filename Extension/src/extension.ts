@@ -5,7 +5,9 @@ export function activate(context: vscode.ExtensionContext) {
     "sniplink.copyAndShare",
     async () => {
       const editor = vscode.window.activeTextEditor;
-      if (!editor) return;
+      if (!editor) {
+        return;
+      }
 
       const selectedText = editor.document.getText(editor.selection);
       if (!selectedText) {
